@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class RecordAudio : MonoBehaviour
 {
@@ -18,6 +21,8 @@ public class RecordAudio : MonoBehaviour
     public float startTimer = 1.0f;
     SavWav savWav = new SavWav();
     public bool checkClip = false;
+    public static string pdp; //persistentDataPath
+    public static string txt;
     void Start()
     {
         Application.RequestUserAuthorization(UserAuthorization.Microphone);
@@ -44,10 +49,14 @@ public class RecordAudio : MonoBehaviour
                     clip.SetData(recordData, 0);
                     if(checkClip) audioSource.PlayOneShot(clip);
                     isSilent = true;
-                    Debug.Log("Saving Clip...");
+                    //Debug.Log("Saving Clip...");
                     savWav.Save(Application.persistentDataPath + "/clip.wav", clip);
-                    Debug.Log("Clip Saved.");
-                    Debug.Log(GoogleRequest.GetTranscription());
+                    //Debug.Log("Clip Saved.");
+                    pdp = Application.persistentDataPath;
+                    txt = GameObject.Find("text").GetComponent<Text>().text;
+                    //Debug.Log($"pdp={pdp}");
+                    Thread thread = new(async () => await GoogleRequest.GetTranscriptionAsync(pdp, txt));
+                    thread.Start();
                 }
             }
         }

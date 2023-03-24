@@ -26,7 +26,7 @@ public class SavWav
 
         var filepath = filename;
 
-        Debug.Log(filepath);
+        Debug.Log($"Clip Saved: {filepath}");
 
         // Make sure directory exists if user is saving to sub dir.
         Directory.CreateDirectory(Path.GetDirectoryName(filepath));
@@ -36,13 +36,11 @@ public class SavWav
         float[] dataFloat = new float[clip.samples * clip.channels];
         clip.GetData(dataFloat, 0);
         clipdata.samplesData = dataFloat;
-        using (var fileStream = CreateEmpty(filepath))
-        {
-            MemoryStream memstrm = new MemoryStream();
-            ConvertAndWrite(memstrm, clipdata);
-            memstrm.WriteTo(fileStream);
-            WriteHeader(fileStream, clip);
-        }
+        using var fileStream = CreateEmpty(filepath);
+        MemoryStream memstrm = new MemoryStream();
+        ConvertAndWrite(memstrm, clipdata);
+        memstrm.WriteTo(fileStream);
+        WriteHeader(fileStream, clip);
 
         return true; // TODO: return false if there's a failure saving the file
     }
@@ -178,6 +176,6 @@ public class SavWav
         byte[] subChunk2 = BitConverter.GetBytes(samples * channels * 2);
         fileStream.Write(subChunk2, 0, 4);
 
-        //		fileStream.Close();
+        fileStream.Close();
     }
 }
