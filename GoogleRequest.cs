@@ -25,7 +25,7 @@ public class GoogleRequest : MonoBehaviour
                     request.Content = new StringContent(text);
                     request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
                     if (log) Debug.Log("Posting...");
-                    var response = await httpClient.PostAsync("https://speech.googleapis.com/v1/speech:recognize?key=AIzaSyCYAhe0cIrh2UJtqJSOCus5DyugYF1gG4w",
+                    var response = await httpClient.PostAsync("https://speech.googleapis.com/v1/speech:recognize?key=API_KEY",
                         new StringContent(text.Replace("b64con", wav)));
                     string content1 = await response.Content.ReadAsStringAsync();
                     string content2 = content1.Split("\"transcript\": \"")[1];
