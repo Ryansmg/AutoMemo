@@ -17,11 +17,11 @@
 Calculates a decibel of the audio input.
 The decibel is used in RecordAudio.cs to detect voices.
 ### RecordAudio.cs
-Detects and records your voice, and creates a wav file using SavWav.cs.
+Detects and records your voice, and creates a wav file (based on the recorded AudioClip) using SavWav.cs.
 ### GoogleRequest.cs
-Sends a POST request (including the API key & the wav file) to the Google Speech-To-Text API, and sends the response to UpdateScreen.cs.
+Sends a POST request (including the API key & the wav file) to the Google Speech-To-Text API, and passes the response to UpdateScreen.cs.
 ### UpdateScreen.cs
-It updates the UI.
+Updates the UI.
 It creates a textSquare if the response contains certain keywords.
 ### MoveCamera.cs
-It moves the Camera. That's all.
+Moves the Camera.
