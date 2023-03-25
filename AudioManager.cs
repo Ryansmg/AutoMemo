@@ -115,7 +115,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(Application.persistentDataPath);
+        Debug.Log("persistentDataPath:\n" + Application.persistentDataPath);
     }
 
     void Update()
