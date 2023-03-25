@@ -11,14 +11,14 @@
    
 아래는 코드 작동 원리에 대한 간략한 설명입니다.
 
-## GoogleRequest.cs
+### GoogleRequest.cs
 Sends a POST request to the Google Speech-To-Text API, and sends the response to UpdateScreen.cs.
-## AudioManager.cs
+### AudioManager.cs
 Calculates a decibel of the audio input.
 The decibel is used in RecordAudio.cs to detect voices.
-## RecordAudio.cs
+### RecordAudio.cs
 Detects and records your voice, and creates a wav file using SavWav.cs.
-## UpdateScreen.cs
+### UpdateScreen.cs
 It updates the UI.
 It creates a textSquare if the response contains certain keywords.
 ### MoveCamera.cs
