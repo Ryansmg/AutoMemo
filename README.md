@@ -13,13 +13,13 @@
 
 *****
 
-### GoogleRequest.cs
-Sends a POST request to the Google Speech-To-Text API, and sends the response to UpdateScreen.cs.
 ### AudioManager.cs
 Calculates a decibel of the audio input.
 The decibel is used in RecordAudio.cs to detect voices.
 ### RecordAudio.cs
 Detects and records your voice, and creates a wav file using SavWav.cs.
+### GoogleRequest.cs
+Sends a POST request (including the API key & the wav file) to the Google Speech-To-Text API, and sends the response to UpdateScreen.cs.
 ### UpdateScreen.cs
 It updates the UI.
 It creates a textSquare if the response contains certain keywords.
