@@ -24,4 +24,4 @@ Sends a POST request (including the API key & the wav file) to the Google Speech
 Updates the UI.
 It creates a textSquare if the response contains certain keywords.
 ### MoveCamera.cs
-Moves the Camera.
+Moves the Main Camera.
