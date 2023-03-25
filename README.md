@@ -11,6 +11,8 @@
    
 아래는 코드 작동 원리에 대한 간략한 설명입니다.
 
+*****
+
 ### GoogleRequest.cs
 Sends a POST request to the Google Speech-To-Text API, and sends the response to UpdateScreen.cs.
 ### AudioManager.cs
