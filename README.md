@@ -3,7 +3,8 @@
 말이 끝나고 나서 최소 2초 뒤에 메모되며, 기억하지 않아도 되는 말은 메모하지 않습니다.   
 이는 "해야 돼", "필요해" 등의 키워드를 인식하는 방법으로 작동합니다.   
    
-업로드한 [AutoMemo.apk를 다운로드받고](https://github.com/Ryansmg/AutoMemo/raw/master/AutoMemo.apk) 실행하면 설치됩니다.   
+업로드한 AutoMemo.apk를 다운로드받고 실행하면 설치됩니다.   
+[<AutoMemo.apk 다운로드>](https://github.com/Ryansmg/AutoMemo/raw/master/AutoMemo.apk)
 > 주의: 위 링크를 클릭하면 파일이 바로 다운로드됩니다.   
 > 안드로이드 전용 앱입니다.   
 > 주변이 시끄러우면 목소리 인식에 실패할 가능성이 높습니다.   
