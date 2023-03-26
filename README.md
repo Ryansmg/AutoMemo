@@ -1,7 +1,7 @@
 # AutoMemo
 이 프로그램은 사용자가 기억해야 할 말을 하면 자동으로 메모해줍니다.   
-말이 끝나고 나서 최소 3~4초 뒤에 메모되며, 기억하지 않아도 되는 말은 메모하지 않습니다.   
-이는 "해야 돼", "사야 돼", "필요해" 등의 키워드를 인식하는 방법으로 작동합니다.   
+말이 끝나고 나서 최소 2~3초 뒤에 메모되며, 기억하지 않아도 되는 말은 메모하지 않습니다.   
+이는 "해야 돼", "제출", "필요해" 등의 키워드를 인식하는 방법으로 작동합니다.   
    
 업로드한 AutoMemo.apk를 다운로드받고 실행하면 설치됩니다.   
 [<AutoMemo.apk 다운로드>](https://github.com/Ryansmg/AutoMemo/raw/master/AutoMemo.apk)
@@ -21,7 +21,7 @@ Detects and records your voice, and creates a wav file (based on the recorded Au
 ### GoogleRequest.cs
 Sends a POST request (including the API key & the wav file) to the Google Speech-To-Text API, and passes the response to UpdateScreen.cs.
 ### UpdateScreen.cs
-Updates the UI.
+Updates the UI including the status text.
 It creates a textSquare if the response contains certain keywords.
 ### MoveCamera.cs
 Moves the Main Camera.
