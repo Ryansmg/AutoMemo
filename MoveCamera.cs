@@ -17,9 +17,9 @@ public class MoveCamera : MonoBehaviour
     public void Up()
     {
         y--;
-        if(y < 0)
+        if(y < -1)
         {
-            y = 0;
+            y = -1;
         }
     }
 

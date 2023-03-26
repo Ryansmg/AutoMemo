@@ -31,6 +31,7 @@ public class RecordAudio : MonoBehaviour
 
     void Update()
     {
+        UpdateScreen.isSilent = isSilent;
         if (startTimer > 0.0f) { startTimer -= Time.deltaTime; return; } //prevents recording while loading
 
         micPos = Microphone.GetPosition(null);
