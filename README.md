@@ -14,14 +14,26 @@
 *****
 
 ### AudioManager.cs
-Calculates a decibel of the audio input.
-The decibel is used in RecordAudio.cs to detect voices.
+오디오 입력의 데시벨을 계산합니다. 이는 RecordAudio.cs에서 목소리 감지에 사용됩니다.
 ### RecordAudio.cs
-Detects and records your voice, and creates a wav file (based on the recorded AudioClip) using SavWav.cs.
+목소리를 감지하고 녹음한 뒤, 목소리를 SavWav.cs를 사용해 wav 파일로 변환합니다. 
 ### GoogleRequest.cs
-Sends a POST request (including the API key & the wav file) to the Google Speech-To-Text API, and passes the response to UpdateScreen.cs.
+API 키와 wav 파일을 포함한 POST 요청을 구글의 오디오-텍스트 변환 API에 보내고, 응답을 UpdateScreen.cs에 전달합니다.
 ### UpdateScreen.cs
+상태 메시지를 포함한 UI를 업데이트하며, 응답이 키워드들을 포함할 시 메모를 생성합니다. 
+### MoveCamera.cs
+카메라의 움직임을 조절합니다.
+
+*****
+
+#### AudioManager.cs
+Calculates a decibel of the audio input. The decibel is used in RecordAudio.cs to detect voices.
+#### RecordAudio.cs
+Detects and records your voice, and creates a wav file (based on the recorded AudioClip) using SavWav.cs.
+#### GoogleRequest.cs
+Sends a POST request (including the API key & the wav file) to the Google Speech-To-Text API, and passes the response to UpdateScreen.cs.
+#### UpdateScreen.cs
 Updates the UI including the status text.
 It creates a textSquare if the response contains certain keywords.
-### MoveCamera.cs
+#### MoveCamera.cs
 Moves the Main Camera.
