@@ -6,21 +6,25 @@ using UnityEngine.UI;
 public class UpdateScreen : MonoBehaviour
 {
     //silent, listening, loading, converting:{details}
-    //not used
+    //not used due to a bug (unknown reason)
     public static string status = "silent";
     public static string newContent = "";
+    public static GameObject audioManagerStatic;
     public GameObject audioManager;
     public static int textObjectNum = 0; //number of TO. (not an index)
     public GameObject textObjectPrefab;
     public static bool isSilent;
+    public int startTON; //textObjectNum
     static readonly string[] preKeywords = { "있어", "써", "사", "만들어", "있었", "가져", "해", "사" };
     static readonly string[] lastKeywords = { "야", "음", "으면", "가야", "갔으" };
     static readonly string[] wholeKeywords = { "필요", "구매", "야돼", "야되", "야됩", "야됨", "면좋겠", "있으면", "준비", "숙제", "제출" };
+    private void Start()
+    {
+        textObjectNum = startTON;
+        audioManagerStatic = audioManager;
+    }
     void Update()
     {
-        //if (gameObject.name.Equals("Screen2")) gameObject.GetComponent<Text>().text
-        //        = $"Decibel : {AudioManager.GetComponent<RecordAudio>().db}   Status : {status}";
-        // not used due to a bug.
         if (gameObject.name.Equals("Screen2"))
         {
             if (isSilent)
@@ -29,7 +33,7 @@ public class UpdateScreen : MonoBehaviour
             }
             else
             {
-                gameObject.GetComponent<Text>().text = "듣는 중입니다.";
+                gameObject.GetComponent<Text>().text = "녹음 중입니다.";
             }
             //gameObject.GetComponent<Text>().text = ((int)AudioManager.MicLoudnessinDecibels + 130) + "";
             //gameObject.GetComponent<Text>().text = $"Status : {status}";
@@ -72,5 +76,15 @@ public class UpdateScreen : MonoBehaviour
             //test script
             //GameObject.Find("Screen").GetComponent<Text>().text += "\n" + newContent;
         }
+    }
+
+    public void InstTextObj(string text)
+    {
+        GameObject top = Instantiate(textObjectPrefab);
+        top.name = $"TextSquare{textObjectNum}";
+        top.transform.position = new Vector3(0, 4.3f - (textObjectNum * 1.3f), 0);
+        top.GetComponentInChildren<Text>().text = text;
+
+        textObjectNum++;
     }
 }

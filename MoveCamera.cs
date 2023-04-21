@@ -7,6 +7,7 @@ public class MoveCamera : MonoBehaviour
     public int y = 0;
     Vector3 velocity = Vector3.zero;
     public float smoothness;
+    public int yLimit = -1;
 
     // Update is called once per frame
     void Update()
@@ -17,9 +18,9 @@ public class MoveCamera : MonoBehaviour
     public void Up()
     {
         y--;
-        if(y < -1)
+        if (y < yLimit)
         {
-            y = -1;
+            y = yLimit;
         }
     }
 
