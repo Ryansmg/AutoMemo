@@ -39,6 +39,7 @@ public class ButtonScript : MonoBehaviour
     {
         string varName = varNameAndChange.Split(",, ")[0];
         string change = varNameAndChange.Split(",, ")[1];
+        //TODO accept ",, " as change
         bool isSet = false;
         if (change.StartsWith("$set$")) { change = change.Replace("$set$", ""); isSet = true; }
 
