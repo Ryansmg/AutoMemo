@@ -11,7 +11,7 @@ public class RecordAudio : MonoBehaviour
     public float silentTimer = 0.0f;
     public bool isSilent = false;
     public float silentDbLimit = -55.0f;
-    public float db;
+    public float db; //min -180, max 0 (not accurate)
     public float silentTimeLimit = 1.5f;
     public int talkStartPos;
     public int micPos;
