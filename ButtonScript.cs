@@ -219,9 +219,17 @@ public class ButtonScript : MonoBehaviour
                     adblTimer += Time.deltaTime;
                     if(adblTimer > 5f) {
                         adblTimer = 0f;
-                        float sdl = (float) Math.Truncate(ShowScript.decibelSum / ShowScript.decibelCount * 10) / 10;
+                        float x = (float) Math.Truncate(ShowScript.decibelSum / ShowScript.decibelCount * 10) / 10 + 180; //데시벨
                         //125.561332 -> 125.5 형태로 format
-                        ChangeVar($"$set$silentDbLimit,, {sdl + 40.0f}");
+                        float sdl; //silentDblimit
+                        if(x < 80)
+                        {
+                            sdl = x + 41.077f;
+                        } else
+                        {
+                            sdl = (-17000 / (x + 101)) + 255 + (-2000 / (x - 30));
+                        }
+                        ChangeVar($"$set$silentDbLimit,, {sdl - 180}");
                         adblStep = 0;
                         AutoDbCanvas.SetActive(false);
                         adbl = false;
